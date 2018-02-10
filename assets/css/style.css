@@ -3,7 +3,7 @@
 		}
 
 .section{
-	width 30%;
+	width: 30%;
 	margin: 20px;
 	position: relative;
 }
@@ -13,4 +13,10 @@
 	display: table;
 	clear: both;
 }
+
+.crystal{
+height: 100px;
+}
+
+
 

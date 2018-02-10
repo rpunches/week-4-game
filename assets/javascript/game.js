@@ -1,29 +1,103 @@
+
+// Set global crystals
+var crystal = {
+    "blue": { 
+        value: 0 
+    }, 
+    "green": { 
+        value: 0 
+    }, 
+    "purple": { 
+        value: 0 
+    }, 
+    "yellow": { 
+        value: 0 
+    }
+};
+
 // Set scoreboard and variables
 var winScore = 0;
 var loseScore = 0;
 var totScore = 0;
-var targetNum = [];
+var targetNum = 0;
 
-// Connect variables to HTML
-
+// Template function
+function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 // Give game a start/reset point
+function startGame() {
+    totScore = 0;  
 
-// totScore is set to O
+    $("#tarNum").empty();
+    $("totSco").empty();
 
-// Set a random value between 90-120 for the targetNum using the Math.floor function.  Link it to the Index page.
+    // Get values for crystals and target number using the template function
+    crystal["blue"].value = getRandom(1, 12);
+    crystal.green.value = getRandom(1, 12);
+    crystal.purple.value = getRandom(1, 12);
+    crystal.yellow.value = getRandom(1, 12);
 
-// Each crystal is assigned a random value between 1 & 12.  The values stay hidden from view.  When a crystal is clicked on, that value is added to the totScore.
+    targetNum = getRandom(19, 120);
+    
+
+// Connect to HTML
+    $("#tarNum").text(targetNum);
+    $("#totSco").text(totScore);
+
+    console.log(crystal.blue.value);
+    console.log(crystal.green.value);
+    console.log(crystal.purple.value);
+    console.log(crystal.yellow.value);
+}
+
+// Template for adding up score
+function addScore(crystal){
+   totScore = totScore + crystal.value;
+    $("#current-score").html(totScore);
+    checkWin();
+}
+
+// How to check if user has won  
+// If the totScore reaches the value of the targetNum, the user wins, a value of 1 is added to winScore and the game is reset.
+function checkWin(){
+    if (totScore === targetNum){
+        alert("You win!");
+        winScore ++;
+        $("#wins").html(winScore);
+        startGame();
+    }
+// / If totScore goes over the targetNum, the user loses, a value of 1 is added to the winScore and the game is reset.
+    else if (totScore > targetNum){
+        alert("You lose!");
+        loseScore ++;
+        $("#lose").html(loseScore);
+        startGame();
+    }
+}
 // ________________________________________________END START GAME
 
 // User clicks on each crystal and that value is added to equal the targetNum.  If the value hasn't yet reached the targetNum then the user continues to click on crystals.
+$("#blue").on("click", function(){
+   addScore(crystal.blue);
+});
 
-// If the totScore reaches the value of the targetNum, the user wins, a value of 1 is added to winScore and the game is reset.
+$("#green").on("click", function(){
+    addScore(crystal.green);
+ });
 
-// If totScore goes over the targetNum, the user loses, a value of 1 is added to the winScore and the game is reset.
+$("#purple").on("click", function(){
+    addScore(crystal.purple);
+ });
+
+$("#yellow").on("click", function(){
+    addScore(crystal.yellow);
+ });
+
+startGame();
 
 
 
-______________________________________________________
 
 // My first attempt**
 
@@ -57,7 +131,7 @@ ______________________________________________________
 //     blueCrystal.attr("src", "C:\Users\rmcdermo\Desktop\BOOT CAMP\Homework\week-4-game\assets\images\blue.png" )
 //     blueCrystal.attr("data-crystalvalue", numberOptions[i]);
 //     document.getElementById("blueCrystal").innerHTML = blueCrystal;
-    
+
 // }
 // }
 

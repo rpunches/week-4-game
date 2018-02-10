@@ -4,46 +4,63 @@
 <head>
     <meta charset="utf-8" />
     <title>Crystal Game</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <script src="assets/javascript/game.js"></script>
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"/>
+
 </head>
 
 <body>
     <div class="jumbo jumbotron">
-        <h1 class="display-1">Crystal Collector!</h1>
+        <h1 class="display-1"><strong>Crystal Collector!</strong></h1>
         <hr>
     </div>
-<div class= "container">
-    <div class="row">
-        <div class="col-md-4" style="background-color: #ff4800; margin:5px; text-align:left">
-            <h2>Directions to Game:</h2>
-            You will be given a number at the start of the game.<br>
-            There are four crystals.  By clicking on a crystal, you will add a specific amount of points to your total score.<br>
-            You will win the game by matching your total score to the random number.  You will lose the game if your total score goes above the random number.<br>
-            The value of each crystal is hidden from you until you click on it.<br>
-            Each time the game starts, the game will change the value of the crystals.
-        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" style="text-align:left">
+                <h4>Directions to Game:</h4>
+                You will be given a number at the start of the game.
+                <br> There are four crystals. By clicking on a crystal, you will add a specific amount of points to your total
+                score.
+                <br> You will win the game by matching your total score to the random number. You will lose the game if your
+                total score goes above the random number.
+                <br> The value of each crystal is hidden from you until you click on it.
+                <br> Each time the game starts, the game will change the value of the crystals.
+            </div>
 
-        <div class="col-md-2" style="background-color: #e9e615; margin:5px">
-            <h2>Number to Guess:</h2>
-           
-        </div>
+            <div class="col-md-2">
+                <h4>Number to Guess:</h4>
+                <h4 id="tar"></h4>
+            </div>
 
-        <div class="col-md-2" style="background-color: rgb(10, 6, 255);margin:5px"><h2>Your Total Score is:</h2>
-           
-        </div>
-        <div class="col-md-3" style="margin:5px">
-           <img src= "assets/images/blue.png" alt= "Blue Crystal" height= "100px">
-           <img src= "assets/images/green.png" alt= "Green Crystal" height= "100px">
-           <img src= "assets/images/purple.png" alt= "Purple Crystal" height= "100px">
-           <img src= "assets/images/yellow.png" alt= "Yellow Crystal" height= "100px">
+            <div class="col-md-2">
+                <h4>Your Total Score is:</h4>
+                <h4 id="tarNum"></h4>
+
+            </div>
+            <div class="col-md-3">
+                <img src="assets/images/blue.png" alt="Blue Crystal" class="crystal" id="blue" />
+                <img src="assets/images/green.png" alt="Green Crystal" class="crystal" id="green" />
+                <img src="assets/images/purple.png" alt="Purple Crystal" class="crystal" id="purple" />
+                <img src="assets/images/yellow.png" alt="Yellow Crystal" class="crystal" id="yellow" />
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <h4>Wins:</h4>
+                        <div id="wins"></div>
+                    </div>
+                    <div class="col">
+                        <h4>Losses:</h4>
+                        <div id="lose"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
-
+  
 </body>
 
 </html>
